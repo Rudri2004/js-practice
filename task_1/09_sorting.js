@@ -101,3 +101,48 @@ const products = [
     tags: ["tablet", "apple", "portable"]
   }
 ];
+
+
+// TASK 54
+// Sort products by price from lowest to highest.
+
+// Do not modify the original products array.
+const modpro = [...products].sort((a, b) => {
+    return a.price - b.price;
+});
+console.log(modpro);
+
+// TASK 55
+// Sort products by price from highest to lowest.
+
+// Do not modify the original array.
+const pricehl = [...products].sort((a, b) => {
+    return b.price - a.price;
+});
+console.log(pricehl);
+
+// TASK 56
+// Sort products by rating from highest to lowest.
+const ratehl = [...products].sort((a, b) => {
+    return b.rating - a.rating;
+});
+
+console.log("Task 56:");
+console.log(ratehl);
+
+// TASK 57
+// Sort products alphabetically by product name.
+
+const alphapro = [...products].sort((a, b) => {
+    return a.name.localeCompare(b.name);
+});
+console.log(alphapro);
+
+// TASK 58
+// Create a new array where products are sorted by stock from highest
+// to lowest.
+
+const stockhl = [...products].sort((a, b) => {
+    return b.stock - a.stock;
+});
+console.log(stockhl);
