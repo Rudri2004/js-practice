@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Control Statements</title>
+</head>
+
+<body>
+
+<h2>JavaScript Control Statements</h2>
+
+<div id="output"></div>
+
+<script>
+
+    let output = "";
+
+    let age = 22;
+
+    if (age >= 18) {
+        output += "Adult<br>";
+    } else {
+        output += "Minor<br>";
+    }
+
+
+    let marks = 75;
+
+    if (marks >= 90) {
+        output += "Grade A+<br>";
+    } else if (marks >= 75) {
+        output += "Grade A<br>";
+    } else if (marks >= 60) {
+        output += "Grade B<br>";
+    } else {
+        output += "Fail<br>";
+    }
+
+
+   
+    let day = 2;
+
+    switch (day) {
+        case 1:
+            output += "Monday<br>";
+            break;
+
+        case 2:
+            output += "Tuesday<br>";
+            break;
+
+        default:
+            output += "Invalid day<br>";
+    }
+
+
+ 
+    output += "For Loop:<br>";
+
+    for (let i = 1; i <= 5; i++) {
+        output += i + "<br>";
+    }
+
+
+   
+    output += "While Loop:<br>";
+
+    let j = 1;
+
+    while (j <= 3) {
+        output += j + "<br>";
+        j++;
+    }
+
+
+   
+    output += "Do While Loop:<br>";
+
+    let k = 1;
+
+    do {
+        output += k + "<br>";
+        k++;
+    } while (k <= 3);
+
+
+    output += "Break Example:<br>";
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (i === 4) {
+            break;
+        }
+
+        output += i + "<br>";
+    }
+
+
+   
+    output += "Continue Example:<br>";
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (i === 3) {
+            continue;
+        }
+
+        output += i + "<br>";
+    }
+
+
+    document.getElementById("output").innerHTML = output;
+
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atm System</title>
+</head>
+<body>
+    
+    <script>
+        let pin=1234;
+        let balance=10000;
+        let enterdpin=1234;
+        let depositedamt=2000;
+        let withdrawamt=3000;
+        let choice=3;
+
+        if(pin===enterdpin){
+
+            document.write("Pin verified <br>");
+            if(choice===1){
+                 document.write("your balance amount is "+ balance+"<br>");
+            }else if(choice===2){
+                 let newamt=balance+depositedamt;
+                document.write("Deposited amount is "+ depositedamt+"<br>");
+                document.write("Your new balance is "+ newamt+"<br>");
+            }
+            else if(choice===3){
+                if (withdrawamt <= balance) {
+                    balance = balance - withdrawamt;
+
+                    document.write("Your withdraw amount is " + withdrawamt + "<br>");
+                    document.write("Your remaining balance is " + balance + "<br>");
+                }
+                else {
+                    document.write("Insufficient balance");
+                }
+            }
+            else if(choice===4){
+                   document.write("Thank you for using the ATM");
+            }
+            else{
+                 document.write("Invalid choice");
+            }
+
+        }
+
+        else{
+             document.write(" Incorrect pin");
+        }
+       
+    </script>
+</body>
+</html>
