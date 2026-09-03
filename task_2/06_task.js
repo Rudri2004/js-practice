@@ -1,83 +1,87 @@
-const students = [
-    { name: 'Amit', marks: 78 },
-    { name: 'Rahul', marks: 45 },
-    { name: 'Priya', marks: 92 },
-    { name: 'Neha', marks: 65 },
-    { name: 'Raj', marks: 32 },
+const transactions = [
+    { id: 1, amount: 1200, type: 'debit' },
+    { id: 2, amount: 5000, type: 'credit' },
+    { id: 3, amount: 800, type: 'debit' },
+    { id: 4, amount: 2500, type: 'credit' },
+    { id: 5, amount: 600, type: 'debit' },
 ];
 
 
-// 1. Find students who scored 50 or more.
+// 1. Calculate total credit amount.
 
+const calctot = transactions.reduce((total, transaction) => {
 
-const stu1 = students.filter((student) => {
-    return student.marks >= 50;
-});
-console.log(stu1);
-
-// 2. Find students who failed.
-
-const stu2 = students.filter((student) => {
-    return student.marks < 50;
-});
-console.log(stu2);
-
-
-// 3. Find the student with the highest marks.
-
-const stu3 = students.reduce((highest, student) => {
-
-    if (student.marks > highest.marks) {
-        return student;
+    if (transaction.type === "credit") {
+        return total + transaction.amount;
     }
 
-    return highest;
+    return total;
 
-});
-console.log(stu3);
-
-
-// 4. Find the student with the lowest marks.
+}, 0);
+console.log( calctot );
 
 
-const stu4 = students.reduce((lowest, student) => {
+// 2. Calculate total debit amount.
 
-    if (student.marks < lowest.marks) {
-        return student;
+const totdebit = transactions.reduce((total, transaction) => {
+
+    if (transaction.type === "debit") {
+        return total + transaction.amount;
     }
 
-    return lowest;
+    return total;
+
+}, 0);
+console.log(totdebit);
+
+
+// 3. Calculate the final balance.
+// Credit is added and debit is subtracted.
+
+const finbal = transactions.reduce((balance, transaction) => {
+
+    if (transaction.type === "credit") {
+        return balance + transaction.amount;
+    }
+
+    return balance - transaction.amount;
+
+}, 0);
+console.log(finbal);
+
+
+// 4. Find the largest transaction.
+
+const lartran = transactions.reduce((largest, transaction) => {
+
+    if (transaction.amount > largest.amount) {
+        return transaction;
+    }
+
+    return largest;
 
 });
-console.log(stu4);
+console.log(lartran);
 
 
-// 5. Calculate the average marks.
+// 5. Find all debit transactions above 700.
 
-const totalMarks = students.reduce((total, student) => {
-    return total + student.marks;
+const debittran = transactions.filter((transaction) => {
+
+    return transaction.type === "debit" &&
+           transaction.amount > 700;
+
+});
+console.log(debittran);
+
+
+// 6. Find the average transaction amount.
+
+const totalAmount = transactions.reduce((total, transaction) => {
+
+    return total + transaction.amount;
+
 }, 0);
 
-const stu5 = totalMarks / students.length;
-
-console.log(stu5);
-
-// 6. Create a new array containing:
-// {
-//     name,
-//     marks,
-//     result
-// }
-// where result is "Pass" or "Fail".
-
-
-const stu6 = students.map((student) => {
-
-    return {
-        name: student.name,
-        marks: student.marks,
-        result: student.marks >= 50 ? "Pass" : "Fail"
-    };
-
-});
-console.log(stu6);
+const avgtran = totalAmount / transactions.length;
+console.log(avgtran);
