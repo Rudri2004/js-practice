@@ -104,11 +104,22 @@ const products = [
 // TASK 71
 // Get the first 5 products and return only their names.
 
-
+const first5 = products
+    .slice(0, 5)
+    .map((product) => {
+        return product.name;
+    });
+console.log(first5);
 // TASK 72
 // Get the last 5 products and return only products costing more than
 // 10000.
 
+const last5 = products
+    .slice(-5)
+    .filter((product) => {
+        return product.price > 10000;
+    });
+console.log(last5);
 
 // TASK 73
 // Get all Apple products and return only:
@@ -117,12 +128,32 @@ const products = [
 //   name,
 //   price
 // }
-
+const apppro = products
+    .filter((product) => {
+        return product.brand === "Apple";
+    })
+    .map((product) => {
+        return {
+            name: product.name,
+            price: product.price
+        };
+    });
+console.log(apppro);
 
 // TASK 74
 // Get all products with rating >= 4.5 and return their names sorted
 // alphabetically.
-
+const ratesort = products
+    .filter((product) => {
+        return product.rating >= 4.5;
+    })
+    .map((product) => {
+        return product.name;
+    })
+    .sort((a, b) => {
+        return a.localeCompare(b);
+    });
+console.log(ratesort);
 
 // TASK 75
 // Get all products that are in stock, sort them by price from highest
@@ -133,3 +164,19 @@ const products = [
 //   price,
 //   stock
 // }
+
+const hlstock = products
+    .filter((product) => {
+        return product.stock > 0;
+    })
+    .sort((a, b) => {
+        return b.price - a.price;
+    })
+    .map(({ name, price, stock }) => {
+        return {
+            name,
+            price,
+            stock
+        };
+    });
+console.log(hlstock );
