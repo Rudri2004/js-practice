@@ -137,6 +137,7 @@ console.log(spePro);
 // name
 // category
 // rating
+// Create a new array containing the extracted information.
 const somePro = products.map(({ name,category,rating }) => {
     return {
         name,
@@ -147,7 +148,7 @@ const somePro = products.map(({ name,category,rating }) => {
 
 console.log(somePro);
 
-// Create a new array containing the extracted information.
+
 
 
 // TASK 19
