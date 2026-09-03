@@ -187,7 +187,7 @@ console.log(ortag);
 //   apple: ["MacBook Air M4", "iPhone 16", ...],
 //   wireless: ["Mechanical Keyboard", ...]
 // }
-const arraytag = products.reduce((tagProducts, product) => {
+const arraytags = products.reduce((tagProducts, product) => {
     product.tags.forEach((tag) => {
         if (!tagProducts[tag]) {
             tagProducts[tag] = [];
@@ -198,4 +198,4 @@ const arraytag = products.reduce((tagProducts, product) => {
 
     return tagProducts;
 }, {});
-console.log(arraytag);
+console.log(arraytags);
