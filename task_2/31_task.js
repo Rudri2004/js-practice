@@ -18,7 +18,6 @@ console.log('January:', janord);
 const febord = orders.filter(order =>
   order.date.startsWith('2025-02')
 );
-
 console.log('February:', febord);
 
 
@@ -50,7 +49,6 @@ const totrev = Object.entries(grpmon).reduce(
   },
   {}
 );
-
 console.log('Total Revenue:', totrev);
 
 
@@ -68,7 +66,6 @@ const avgordamt = Object.entries(grpmon).reduce(
   },
   {}
 );
-
 console.log('Averaggge Order Amount:', avgordamt);
 
 
