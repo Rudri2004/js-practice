@@ -9,31 +9,22 @@ const products = [
 const priceAscending = [...products].sort(
   (a, b) => a.price - b.price
 );
-
 console.log("1. Price ascending:", priceAscending);
 
 
 // 2. Sort products by price descending
-const priceDescending = [...products].sort(
-  (a, b) => b.price - a.price
-);
+const priceDescending = [...products].sort( (a, b) => b.price - a.price);
 
 console.log("2. Price descending:", priceDescending);
 
 
 // 3. Sort products alphabetically by name
-const alphabetical = [...products].sort(
-  (a, b) => a.name.localeCompare(b.name)
-);
-
+const alphabetical = [...products].sort((a, b) => a.name.localeCompare(b.name));
 console.log("3. Alphabetically by name:", alphabetical);
 
 
 // 4. Find the two most expensive products
-const topTwoExpensive = [...products]
-  .sort((a, b) => b.price - a.price)
-  .slice(0, 2);
-
+const topTwoExpensive = [...products].sort((a, b) => b.price - a.price).slice(0, 2);
 console.log("4. Two most expensive products:", topTwoExpensive);
 
 
@@ -43,5 +34,4 @@ const sortedProducts = [...products].sort(
 );
 
 console.log("5. New sorted array:", sortedProducts);
-
 console.log("Original products array:", products);

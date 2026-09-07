@@ -1,5 +1,6 @@
 const numbers = [10, 20, 10, 30, 20, 40, 50, 30, 10];
 
+
 // 1. Remove duplicate numbers
 const uniqueNumbers = [...new Set(numbers)];
 
@@ -16,10 +17,11 @@ console.log("2. Number count:", numberCount);
 
 
 // 3. Find the number that appears most frequently
-const mostFrequent = Object.entries(numberCount)
-  .reduce((highest, current) =>
-    current[1] > highest[1] ? current : highest
-  );
+const mostFrequent = Object.entries(numberCount).reduce(
+  (highest, current) => {
+    return current[1] > highest[1] ? current : highest;
+  }
+);
 
 console.log("3. Most frequent number:", Number(mostFrequent[0]));
 console.log("   Appears:", mostFrequent[1], "times");

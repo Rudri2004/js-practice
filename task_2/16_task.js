@@ -7,15 +7,14 @@ const employees = [
 ];
 
 // 1. Find all IT employees
-const itEmployees = employees.filter(
+const itemployees = employees.filter(
   employee => employee.department === 'IT'
 );
-
-console.log("1. IT Employees:", itEmployees);
+console.log("1. IT Employees:", itemployees);
 
 
 // 2. Sort IT employees by salary from highest to lowest
-const sortedITEmployees = [...itEmployees].sort(
+const sortedITEmployees = [...itemployees].sort(
   (a, b) => b.salary - a.salary
 );
 
@@ -29,11 +28,10 @@ console.log("3. Top 2 highest-paid IT employees:", top2ITEmployees);
 
 
 // 4. Calculate the average IT salary
-const totalITSalary = itEmployees.reduce(
+const totalITSalary = itemployees.reduce(
   (total, employee) => total + employee.salary,
   0
 );
-
 const averageITSalary = totalITSalary / itEmployees.length;
 
 console.log("4. Average IT salary:", averageITSalary);
@@ -41,6 +39,10 @@ console.log("4. Average IT salary:", averageITSalary);
 
 // 5. Calculate the total salary expense for IT
 console.log("5. Total IT salary expense:", totalITSalary);
+
+
+
+
 
 
 // 6. Find the highest-paid employee in each department
@@ -58,5 +60,4 @@ const highestPaidByDepartment = employees.reduce((result, employee) => {
   return result;
 
 }, {});
-
 console.log("6. Highest-paid employee in each department:", highestPaidByDepartment);

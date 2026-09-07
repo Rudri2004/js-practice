@@ -27,19 +27,19 @@ const userCountByCity = Object.fromEntries(
 console.log("User count by city:", userCountByCity);
 
 // 3. Find all users from Ahmedabad
-const ahmedabadUsers = users.filter(
+const ahmedabadUser = users.filter(
   user => user.city === 'Ahmedabad'
 );
 
-console.log("Ahmedabad users:", ahmedabadUsers);
+console.log("Ahmedabad users:", ahmedabadUser);
 
 // 4. Find the city having the highest number of users
-const highestCity = Object.entries(userCountByCity)
+const highestCt = Object.entries(userCountByCity)
   .reduce((highest, current) =>
     current[1] > highest[1] ? current : highest
   );
-console.log("Ahmedabad users:", ahmedabadUsers);
+console.log("highest no of user:", highestCt);
 
 // 5. Create an array containing unique city names
-const uniqueCities = [...new Set(users.map(user => user.city))];
-console.log("Unique cities:", uniqueCities);
+const uniqueCt = [...new Set(users.map(user => user.city))];
+console.log("Unique cities:", uniqueCt);

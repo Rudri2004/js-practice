@@ -12,15 +12,13 @@ const users = [
 const older = users.filter((user) => {
     return user.age >= 18;
 });
-
 console.log(older);
 
 // 2. Find the first user whose age is greater than 25.
 
-const userage = users.find((user) => {
+  const userage = users.find((user) => {
     return user.age > 25;
 });
-
 console.log(userage);
 
 // 3. Find the index of the user named 'Neha'.
@@ -28,7 +26,6 @@ console.log(userage);
 const username = users.findIndex((user) => {
     return user.name === "Neha";
 });
-
 console.log(username);
 
 // 4. Check whether any user is below 18.
@@ -36,24 +33,20 @@ console.log(username);
 const smaller = users.some((user) => {
     return user.age < 18;
 });
-
 console.log(smaller);
 
 // 5. Check whether every user is above 10.
 
-const result5 = users.every((user) => {
-    return user.age > 10;
+const userabv = users.every((user) => {
+            return user.age > 10;
 });
-
-console.log(result5);
+console.log(userabv);
 
 // 6. Create a new array containing name and age only.
 
-const result6 = users.map((user) => {
-    return {
+const nameage = users.map((user) => {  return {
         name: user.name,
         age: user.age
     };
 });
-
-console.log(result6);
+console.log( nameage);

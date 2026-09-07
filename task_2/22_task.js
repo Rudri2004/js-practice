@@ -13,7 +13,7 @@ const transactions = [
 
 
 // 1. Calculate the total balance
-const totalCredit = transactions
+const totcr = transactions
   .filter(transaction => transaction.type === 'credit')
   .reduce((total, transaction) => total + transaction.amount, 0);
 
@@ -21,33 +21,32 @@ const totalDebit = transactions
   .filter(transaction => transaction.type === 'debit')
   .reduce((total, transaction) => total + transaction.amount, 0);
 
-const totalBalance = totalCredit - totalDebit;
+const totbal = totcr - totalDebit;
 
-console.log("1. Total balance:", totalBalance);
+console.log("1. Total balance:", totbal);
 
 
 // 2. Filter transactions after 2024-01-10
-const transactionsAfterDate = transactions.filter(
+const tranafdt = transactions.filter(
   transaction => transaction.date > '2024-01-10'
 );
 
-console.log("2. Transactions after 2024-01-10:", transactionsAfterDate);
+console.log("2. Transactions after 2024-01-10:", tranafdt);
 
 
 // 3. Find the average amount of credit transactions
-const creditTransactions = transactions.filter(
+const crtran = transactions.filter(
   transaction => transaction.type === 'credit'
 );
 
-const totalCreditAmount = creditTransactions.reduce(
+const totalCreditAmount = crtran.reduce(
   (total, transaction) => total + transaction.amount,
   0
 );
 
-const averageCreditAmount =
-  totalCreditAmount / creditTransactions.length;
+const avgamt = totalCreditAmount / crtran.length;
 
-console.log("3. Average credit amount:", averageCreditAmount);
+console.log("3. Average credit amount:", avgamt);
 
 
 // 4. Sort transactions by amount ascending

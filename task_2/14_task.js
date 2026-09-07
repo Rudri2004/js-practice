@@ -5,18 +5,18 @@ const cart = [
 ];
 
 // 1. Calculate subtotal of every cart item
-const cartWithSubtotal = cart.map(item => ({
+const cartsubttl = cart.map(item => ({
   ...item,
   subtotal: item.price * item.quantity
 }));
-console.log("Cart with subtotals:", cartWithSubtotal);
+console.log("Cart with subtotals:", cartsubttl);
 
 // 2. Calculate total cart amount
-const totalCartAmount = cartWithSubtotal.reduce(
+const totalcartamt =cartsubttl .reduce(
   (total, item) => total + item.subtotal,
   0
 );
-console.log("Total cart amount:", totalCartAmount);
+console.log("Total cart amount:", totalcartamt);
 
 // 3. Calculate total number of products
 const totalProducts = cart.reduce(
@@ -26,18 +26,18 @@ const totalProducts = cart.reduce(
 console.log("Total products:", totalProducts);
 
 // 4. Find cart item with the highest subtotal
-const highestSubtotalItem = cartWithSubtotal.reduce(
+const highitem = cartsubttl.reduce(
   (highest, item) =>
     item.subtotal > highest.subtotal ? item : highest
 );
-console.log("Highest subtotal item:", highestSubtotalItem);
+console.log("Highest subtotal item:", highitem);
 
 // 5. Apply 10% discount if total is greater than 30000
-const discount = totalCartAmount > 30000
-  ? totalCartAmount * 0.10
+const discount = totalcartamt > 30000
+  ? totalcartamt * 0.10
   : 0;
 console.log("Discount:", discount);
 
 // 6. Calculate final amount after discount
-const finalAmount = totalCartAmount - discount;
-console.log("Final amount:", finalAmount);
+const finalAmt = totalcartamt- discount;
+console.log("Final amount:", finalAmt);

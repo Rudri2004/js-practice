@@ -7,24 +7,24 @@ const orders = [
 ];
 
 // 1. Find all delivered orders
-const deliveredOrders = orders.filter(
+const delivord= orders.filter(
   order => order.status === 'delivered'
 );
-console.log("1. Delivered orders:", deliveredOrders);
+console.log("1. Delivered orders:", delivord);
 
 // 2. Calculate total delivered order amount
-const totalDeliveredAmount = deliveredOrders.reduce(
+const totalDelivamt = delivord.reduce(
   (total, order) => total + order.amount,
   0
 );
-console.log("2. Total delivered amount:", totalDeliveredAmount);
+console.log("2. Total delivered amount:", totalDelivamt);
 
 // 3. Count orders by status
-const ordersByStatus = orders.reduce((result, order) => {
+const orderByStatus = orders.reduce((result, order) => {
   result[order.status] = (result[order.status] || 0) + 1;
   return result;
 }, {});
-console.log("3. Orders by status:", ordersByStatus);
+console.log("3. Orders by status:", orderByStatus);
 
 // 4. Calculate total order amount for each customer
 const totalByCustomer = orders.reduce((result, order) => {
@@ -34,19 +34,19 @@ const totalByCustomer = orders.reduce((result, order) => {
 console.log("4. Total by customer:", totalByCustomer);
 
 // 5. Find the customer with the highest total order amount
-const highestCustomer = Object.entries(totalByCustomer)
+const highcust = Object.entries(totalByCustomer)
   .reduce((highest, current) =>
     current[1] > highest[1] ? current : highest
   );
-console.log("5. Highest spending customer:", highestCustomer);
+console.log("5. Highest spending customer:", highcust );
 
 // 6. Find customers who have more than one order
-const orderCountByCustomer = orders.reduce((result, order) => {
+const orderCnt = orders.reduce((result, order) => {
   result[order.customer] = (result[order.customer] || 0) + 1;
   return result;
 }, {});
 
-const customersWithMultipleOrders = Object.entries(orderCountByCustomer)
+const custmlp = Object.entries(orderCnt)
   .filter(([customer, count]) => count > 1)
   .map(([customer]) => customer);
-console.log("6. Customers with multiple orders:", customersWithMultipleOrders);
+console.log("6. Customers with multiple orders:", custmlp);
