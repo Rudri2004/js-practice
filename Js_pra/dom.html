@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <title>DOM Practice</title>
+
+    <style>
+        .box {
+            padding: 20px;
+            background-color: lightgray;
+        }
+
+        .active {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container" class="box">
+
+        <h1 id="title">Hello World</h1>
+
+        <p id="message">Welcome to JavaScript</p>
+
+        <button id="btn">Click Me</button>
+
+    </div>
+
+
+    <script>
+
+        // 1. getElementById()
+        const title = document.getElementById("title");
+
+        // 2. querySelector()
+        const message = document.querySelector("#message");
+
+        // 3. textContent
+        title.textContent = "DOM Manipulation";
+
+
+        // 4. style
+        title.style.color = "blue";
+        title.style.fontSize = "35px";
+
+
+        // 5. classList
+        message.classList.add("active");
+
+
+        // 6. createElement()
+        const paragraph = document.createElement("p");
+
+        paragraph.textContent = "This is a new paragraph.";
+
+
+        // 7. appendChild()
+        const container = document.getElementById("container");
+
+        container.appendChild(paragraph);
+
+
+        // 8. children
+        console.log(container.children);
+
+
+        // 9. parentNode
+        console.log(message.parentNode);
+
+
+        // 10. nextSibling
+        console.log(message.nextSibling);
+
+
+        // 11. nextElementSibling
+        console.log(message.nextElementSibling);
+
+
+        // 12. Remove element
+        // paragraph.remove();
+
+    </script>
+
+</body>
+</html>
