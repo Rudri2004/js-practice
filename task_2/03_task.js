@@ -7,7 +7,6 @@ const numbers = [12, 5, 8, 21, 16, 3, 10, 7];
 const calc1 = numbers.filter((number) => {
     return number % 2 === 0;
 });
-
 console.log(calc1);
 
 // 2. Find all odd numbers.
@@ -15,7 +14,6 @@ console.log(calc1);
 const calc2 = numbers.filter((number) => {
     return number % 2 !== 0;
 });
-
 console.log(calc2);
 
 // 3. Find numbers greater than 10.
@@ -23,14 +21,12 @@ console.log(calc2);
 const calc3 = numbers.filter((number) => {
     return number > 10;
 });
-
 console.log(calc3);
 
 // 4. Find the first number greater than 15.
 const calc4 = numbers.find((number) => {
     return number > 15;
 });
-
 console.log(calc4);
 
 // 5. Calculate the total of all numbers.
@@ -38,7 +34,6 @@ console.log(calc4);
 const calc5 = numbers.reduce((total, number) => {
     return total + number;
 }, 0);
-
 console.log(calc5);
 
 // 6. Calculate the average number.
@@ -46,7 +41,6 @@ console.log(calc5);
 const total = numbers.reduce((sum, number) => {
     return sum + number;
 }, 0);
-
 const calc6 = total / numbers.length;
 
 console.log(calc6);
@@ -60,7 +54,6 @@ const calc7 = numbers.reduce((highest, number) => {
 
     return highest;
 });
-
 console.log(calc7);
 
 // 8. Find the lowest number.
@@ -72,5 +65,4 @@ const calc8 = numbers.reduce((lowest, number) => {
 
     return lowest;
 });
-
 console.log(calc8);
