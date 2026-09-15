@@ -175,7 +175,7 @@ console.log(inventorypro);
 //   Audio: 0
 // }
 
-const categoryCount = products.reduce((total, product) => {
+const catCount = products.reduce((total, product) => {
     const category = product.category;
 
     if (total[category]) {
@@ -187,7 +187,7 @@ const categoryCount = products.reduce((total, product) => {
     return total;
 }, {});
 
-console.log( categoryCount);
+console.log( catCount);
 
 // TASK 66
 // Create an object containing the total stock for each category.
