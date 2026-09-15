@@ -69,4 +69,4 @@ const avgordamt = Object.entries(grpmon).reduce(
 console.log('Averaggge Order Amount:', avgordamt);
 
 
-// 6. Find the month with the highest revenue
+

@@ -8,13 +8,13 @@ const users = [
 // 1. Find all active users
 const activeuser = users.filter(user => user.active);
 
-console.log("1. Active users:", activeuser);
+console.log("Active users:", activeuser);
 
 
 // 2. Find all inactive users
 const inactiveuser = users.filter(user => !user.active);
 
-console.log("2. Inactive users:", inactiveuser);
+console.log(" Inactive users:", inactiveuser);
 
 
 // 3. Find active users above age 20
@@ -22,13 +22,13 @@ const activeabove = users.filter(
   user => user.active && user.age > 20
 );
 
-console.log("3. Active users above age 20:", activeabove);
+console.log(" Active users above age 20:", activeabove);
 
 
 // 4. Check whether any inactive user exists
 const hasinactiveuser = users.some(user => !user.active);
 
-console.log("4. Any inactive user exists:", hasinactiveuser);
+console.log("Any inactive user exists:", hasinactiveuser);
 
 
 // 5. Check whether all active users are above age 18
@@ -36,7 +36,7 @@ const allActiveAbove = users
   .filter(user => user.active)
   .every(user => user.age > 18);
 
-console.log("5. All active users above age 18:", allActiveAbove);
+console.log("All active users above age 18:", allActiveAbove);
 
 
 // 6. Create a new array with name and status
@@ -45,4 +45,4 @@ const userstatus = users.map(user => ({
   status: user.active ? "Active" : "Inactive"
 }));
 
-console.log("6. User status:", userstatus);
+console.log(" User status:", userstatus);

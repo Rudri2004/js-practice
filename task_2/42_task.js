@@ -55,4 +55,19 @@ console.log(item5);
 
 // 3. Return the complete path of item id 5.
 // 4. Count total menu items.
-// 5. Find the maximum nesting level.
+function countMenuItems(items) {
+    let count = 0;
+
+    for (const item of items) {
+        count++;
+
+        if (item.children.length > 0) {
+            count += countMenuItems(item.children);
+        }
+    }
+
+    return count;
+}
+console.log(countMenuItems(menu));
+
+

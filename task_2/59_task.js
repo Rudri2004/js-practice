@@ -55,13 +55,12 @@ function isActuallyEmpty(value) {
     return false;
 }
 
-// Test the function
 
-console.log(isActuallyEmpty(0));          // false
-console.log(isActuallyEmpty(""));         // true
-console.log(isActuallyEmpty("hello"));    // false
-console.log(isActuallyEmpty(null));       // true
-console.log(isActuallyEmpty(undefined));  // true
-console.log(isActuallyEmpty([]));         // true
-console.log(isActuallyEmpty({}));         // true
-console.log(isActuallyEmpty(NaN));        // false 
+
+console.log(isActuallyEmpty(0));          
+console.log(isActuallyEmpty(""));        
+console.log(isActuallyEmpty("hello"));    
+console.log(isActuallyEmpty(null));       
+console.log(isActuallyEmpty(undefined));  
+console.log(isActuallyEmpty([]));         
+console.log(isActuallyEmpty({}));           
