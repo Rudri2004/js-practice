@@ -199,7 +199,49 @@ console.log(inventory);
 //   mostExpensiveProduct,
 //   cheapestProduct
 // }
+// TASK 90
+// Create a product summary object.
 
+const totalProducts = products.length;
+
+const totalStock = products.reduce((total, product) => {
+    return total + product.stock;
+}, 0);
+
+const totalInventoryValue = products.reduce((total, product) => {
+    return total + product.price * product.stock;
+}, 0);
+
+const averageRating = products.reduce((total, product) => {
+    return total + product.rating;
+}, 0) / products.length;
+
+const mostExpensiveProduct = products.reduce((expensive, product) => {
+    if (product.price > expensive.price) {
+        return product;
+    }
+
+    return expensive;
+});
+
+const cheapestProduct = products.reduce((cheap, product) => {
+    if (product.price < cheap.price) {
+        return product;
+    }
+
+    return cheap;
+});
+
+const summary = {
+    totalProducts,
+    totalStock,
+    totalInventoryValue,
+    averageRating,
+    mostExpensiveProduct,
+    cheapestProduct
+};
+
+console.log(summary);
 
 // TASK 91
 // Create a new array containing only products whose:
@@ -252,3 +294,27 @@ console.log(condition);
 // - "LOW" when price < 10000
 // - "MEDIUM" when price >= 10000 and price < 50000
 // - "HIGH" when price >= 50000
+// TASK 92
+
+const productSummary = products.map((product) => {
+    let priceLevel;
+
+    if (product.price < 10000) {
+        priceLevel = "LOW";
+    } else if (product.price >= 10000 && product.price < 50000) {
+        priceLevel = "MEDIUM";
+    } else {
+        priceLevel = "HIGH";
+    }
+
+    return {
+        id: product.id,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        isAvailable: product.stock > 0,
+        priceLevel: priceLevel
+    };
+});
+
+console.log(productSummary);
