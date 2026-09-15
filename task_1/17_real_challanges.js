@@ -210,6 +210,75 @@ console.log(Budgetpro);
 // }
 
 // All values must be calculated dynamically from the products array.
-
 // Do not hardcode any result.
+
+function createProductDashboard(productList) {
+    const totalProducts = productList.length;
+
+    const categories = [...new Set(
+        productList.map(product => product.category)
+    )];
+
+    const brands = [...new Set(
+        productList.map(product => product.brand)
+    )];
+
+    const totalStock = productList.reduce((total, product) => {
+        return total + product.stock;
+    }, 0);
+
+    const totalInventoryValue = productList.reduce((total, product) => {
+        return total + product.price * product.stock;
+    }, 0);
+
+    const averageRating = productList.length > 0
+        ? productList.reduce((total, product) => {
+            return total + product.rating;
+        }, 0) / productList.length
+        : 0;
+
+    const highestRatedProduct = productList.length > 0
+        ? productList.reduce((highest, product) => {
+            return product.rating > highest.rating
+                ? product
+                : highest;
+        })
+        : null;
+
+    const lowestPricedProduct = productList.length > 0
+        ? productList.reduce((lowest, product) => {
+            return product.price < lowest.price
+                ? product
+                : lowest;
+        })
+        : null;
+
+    const outOfStockProducts = productList.filter(product => {
+        return product.stock === 0;
+    });
+
+    const topProducts = [...productList]
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 3);
+
+    return {
+        totalProducts,
+        categories,
+        brands,
+        totalStock,
+        totalInventoryValue,
+        averageRating,
+        highestRatedProduct,
+        lowestPricedProduct,
+        outOfStockProducts,
+        topProducts
+    };
+}
+const dashboard = createProductDashboard(products);
+
+console.log("Product Dashboard:");
+console.log(dashboard);
+
+
+
 

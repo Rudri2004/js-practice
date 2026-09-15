@@ -175,6 +175,19 @@ console.log(inventorypro);
 //   Audio: 0
 // }
 
+const categoryCount = products.reduce((total, product) => {
+    const category = product.category;
+
+    if (total[category]) {
+        total[category] = total[category] + 1;
+    } else {
+        total[category] = 1;
+    }
+
+    return total;
+}, {});
+
+console.log( categoryCount);
 
 // TASK 66
 // Create an object containing the total stock for each category.
@@ -186,3 +199,17 @@ console.log(inventorypro);
 //   Accessories: 0,
 //   Audio: 0
 // }
+
+const categoryStock = products.reduce((total, product) => {
+    const category = product.category;
+
+    if (total[category]) {
+        total[category] = total[category] + product.stock;
+    } else {
+        total[category] = product.stock;
+    }
+
+    return total;
+}, {});
+
+console.log( categoryStock);
