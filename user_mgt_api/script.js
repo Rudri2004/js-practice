@@ -258,7 +258,7 @@ async function deleteuser(id) {
 
 async function main() {
     try {
-        // 1. Login
+        
         const loginData = await login("emilys", "emilyspass");
 
         if (!loginData || !authData?.accessToken) {
@@ -269,14 +269,13 @@ async function main() {
         console.log("Name:", `${authData.firstName} ${authData.lastName}`);
         console.log("Email:", authData.email);
 
-        // 2. Get Users
+     
         const users = await getUsers();
 
         if (!users) {
             throw new Error("Get users failed. Flow stopped.");
         }
 
-        // 3. Add User
         const addedUser = await adduser({
             firstName: "Rudri",
             lastName: "Joshi",
@@ -289,24 +288,21 @@ async function main() {
             throw new Error("Add user failed. Flow stopped.");
         }
 
-      // 4. Update User
-const updatedUser = await updateuser(addedUser.id);
+        const updatedUser = await updateuser(1);
 
-if (!updatedUser?.id) {
-    throw new Error("Update user failed. Flow stopped.");
-}
+        if (!updatedUser?.id) {
+            throw new Error("Update user failed. Flow stopped.");
+        }
 
-// 5. Delete User
-const deletedUser = await deleteuser(updatedUser.id);
+        const deletedUser = await deleteuser(1);
 
-if (!deletedUser?.id) {
-    throw new Error("Delete user failed. Flow stopped.");
-}
+        if (!deletedUser?.id) {
+            throw new Error("Delete user failed. Flow stopped.");
+        }
 
-console.log("\nComplete API flow executed successfully");
-
-} catch (error) {
-    console.error("Complete flow failed:", error.message);
-}
-}
+        console.log("\nComplete API flow executed successfully");
+     }catch (error) {
+            console.error("Complete flow failed:", error.message);
+    }
+        }
 main();
