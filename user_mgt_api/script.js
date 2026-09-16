@@ -127,31 +127,29 @@ async function getUsers(){
 // Print the newly created user's information.
 
 // Handle both successful and unsuccessful requests.
-
 async function adduser(userData) {
-    
-    try{
-    const response = await fetch ("https://dummyjson.com/users/add", {
-        method:"POST",
-        headers:{
-            "content-type":"application/json"
-        },
-        body:JSON.stringify(userData)
-    });
-    if(!response.ok){
-        throw new Error("user not added");
-        
-    }
-    const data =await response.json();
+    try {
+        const response = await fetch("https://dummyjson.com/users/add", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        });
 
-    
-     
-    console.log("user created Sucessfully");
-    console.log("new user information");
-    console.log(data);
-}    
-    catch(error){
-        console.log("login failed", error.message);
+        if (!response.ok) {
+            throw new Error("user not added");
+        }
+
+        const data = await response.json();
+
+        console.log("User created successfully");
+        console.log("New user information");
+        console.log(data);
+
+        return data;
+    } catch (error) {
+        console.log("Add user failed:", error.message);
         return null;
     }
 }
@@ -171,39 +169,40 @@ async function adduser(userData) {
 // Update at least two properties of the user, then print the API response.
 
 // Handle errors appropriately.
-
 async function updateuser(id) {
     const updateu = {
         firstName: "Rudrij",
-        age: 15,
-   
+        age: 15
     };
-    try{
-    const response = await fetch (`https://dummyjson.com/users/${id}`, {
-        method:"PUT",
-        headers:{
-            "content-type":"application/json"
-        },
-        body:JSON.stringify(updateu)
-    });
-    if(!response.ok){
-        throw new Error("user not updated");
-        
-    }
-    const data =await response.json();
 
+    try {
+        const response = await fetch(
+            `https://dummyjson.com/users/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(updateu)
+            }
+        );
 
-    console.log("user updated Sucessfully");
-    console.log("updated user information");
-    console.log(data);
-}    
-    catch(error){
-        console.log("login failed", error.message);
+        if (!response.ok) {
+            throw new Error("user not updated");
+        }
+
+        const data = await response.json();
+
+        console.log("User updated successfully");
+        console.log("Updated user information");
+        console.log(data);
+
+        return data; // Important
+    } catch (error) {
+        console.log("Update user failed:", error.message);
         return null;
     }
 }
-// updateuser(1);
-
 
 
 // ### 5. Delete User
@@ -213,27 +212,27 @@ async function updateuser(id) {
 
 // Handle unsuccessful responses and API errors.
 
-
 async function deleteuser(id) {
-   
-    try{
-    const response = await fetch (`https://dummyjson.com/users/${id}`, {
-        method:"delete",
-       
-    });
-    if(!response.ok){
-        throw new Error("user not deleted");
-        
-    }
-    const data =await response.json();
+    try {
+        const response = await fetch(
+            `https://dummyjson.com/users/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
 
+        if (!response.ok) {
+            throw new Error("user not deleted");
+        }
 
-    console.log("user deleted Sucessfully");
-  
-    console.log(data);
-}    
-    catch(error){
-        console.log("login failed", error.message);
+        const data = await response.json();
+
+        console.log("User deleted successfully");
+        console.log(data);
+
+        return data; 
+    } catch (error) {
+        console.log("Delete user failed:", error.message);
         return null;
     }
 }
@@ -257,52 +256,57 @@ async function deleteuser(id) {
 
 // The program should continue only when the previous required operation succeeds.
 
-
 async function main() {
     try {
-      
+        // 1. Login
+        const loginData = await login("emilys", "emilyspass");
 
-        // const loginData = await login("emilys", "emilyspass");
-        //     console.log("Login successful");
-        // console.log("Name:", `${authData.firstName} ${authData.lastName}`);
-        // console.log("Email:", authData.email);
-
-        // if (!loginData || !authData?.accessToken) {
-        //     throw new Error("Login failed. Flow stopped.");
-        // }
- 
-        // const users = await getUsers();
-
-        // if (!users) {
-        //     throw new Error("Get users failed. Flow stopped.");
-        // }
-
-        // const addedUser = await adduser({
-        
-        //     firstName: "Rudri",
-        //     lastName: "Joshi",
-        //     age: 25,
-        //     gender: "female",
-        //     email: "rudri@example.com"
-        // });
-
-
-        const updatedUser = await updateuser(adduser.id);
-
-        if (!updatedUser?.id) {
-            throw new Error("Update user failed. Flow stopped.");
+        if (!loginData || !authData?.accessToken) {
+            throw new Error("Login failed. Flow stopped.");
         }
 
-    //     const deletedUser = await deleteuser(updatedUser.id);
+        console.log("Login successful");
+        console.log("Name:", `${authData.firstName} ${authData.lastName}`);
+        console.log("Email:", authData.email);
 
-    //     if (!deletedUser?.id) {
-    //         throw new Error("Delete user failed. Flow stopped.");
-    //     }
+        // 2. Get Users
+        const users = await getUsers();
 
-    //     console.log("\nComplete API flow executed successfully");
-   } catch (error) {
-        console.error("Complete flow failed:", error.message);
-    }
+        if (!users) {
+            throw new Error("Get users failed. Flow stopped.");
+        }
+
+        // 3. Add User
+        const addedUser = await adduser({
+            firstName: "Rudri",
+            lastName: "Joshi",
+            age: 25,
+            gender: "female",
+            email: "rudri@example.com"
+        });
+
+        if (!addedUser?.id) {
+            throw new Error("Add user failed. Flow stopped.");
+        }
+
+      // 4. Update User
+const updatedUser = await updateuser(addedUser.id);
+
+if (!updatedUser?.id) {
+    throw new Error("Update user failed. Flow stopped.");
 }
 
+// 5. Delete User
+const deletedUser = await deleteuser(updatedUser.id);
+
+if (!deletedUser?.id) {
+    throw new Error("Delete user failed. Flow stopped.");
+}
+
+console.log("\nComplete API flow executed successfully");
+
+} catch (error) {
+    console.error("Complete flow failed:", error.message);
+}
+}
 main();
