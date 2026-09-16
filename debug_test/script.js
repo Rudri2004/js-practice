@@ -51,48 +51,48 @@
 //setTimeout(), fetch(), Promises,  async/await
 
 //6. Debug this code. It should print the user's name.
-//await keyword missing in fetch and respose.json()
-// async function getUser() {
-//   const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
-//   const user = await response.json();
+// await keyword missing in fetch and respose.json()
+async function getUser() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await response.json();
 
-//   console.log(user.name);
-// }
+  console.log(user.name);
+}
 
-// getUser();
+getUser();
 
 
 //7.  Debug this code. The function should return the fetched posts.
 // function start with async keyword and .then are missing at post return
-// async function getPosts() {
-//     return fetch("https://jsonplaceholder.typicode.com/posts")
-//         .then((response) => {
-//             return response.json();
-//         })
-//         .then((posts) => {
-//             return posts;
-//         });
-// }
+async function getPosts() {
+    return fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+            return response.json();
+        })
+        .then((posts) => {
+            return posts;
+        });
+}
 
-// getPosts().then((posts) => {
-//     console.log(posts);
-// });
+getPosts().then((posts) => {
+    console.log(posts);
+});
 
 
 //8. What is the output order of this code? Explain why.
 //  the code execute priority wise first execute sync task , microtask and last  
 //so op is 1 4 3 2return priority wise
-// console.log("1");
+console.log("1");
 
-// setTimeout(() => {
-//   console.log("2");
-// }, 0);
+setTimeout(() => {
+  console.log("2");
+}, 0);
 
-// Promise.resolve().then(() => {
-//   console.log("3");
-// });
+Promise.resolve().then(() => {
+  console.log("3");
+});
 
-// console.log("4");
+console.log("4");
 //op:  1 4 3 2
 
 //9. Write an `async/await` function that fetches users from:
@@ -105,38 +105,38 @@
 // return only users whose age is greater than 18, assuming an `age` property exists
 // return only `{ id, name, email }`
 // handle errors using `try/catch`
-// async function userget() {
-//     try {
-//         const response = await fetch(
-//             "https://jsonplaceholder.typicode.com/users"
-//         );
+async function userget() {
+    try {
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/users"
+        );
 
-//         if (!response.ok) {
-//             throw new Error("Failed to fetch users");
-//         }
+        if (!response.ok) {
+            throw new Error("Failed to fetch users");
+        }
 
-//         const users = await response.json();
+        const users = await response.json();
 
-//         const adultUsers = users
-//             .filter((user) => user.age > 18)
-//             .map((user) => {
-//                 return {
-//                     id: user.id,
-//                     name: user.name,
-//                     email: user.email
-//                 };
-//             });
+        const adultUsers = users
+            .filter((user) => user.age > 18)
+            .map((user) => {
+                return {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email
+                };
+            });
 
-//         return adultUsers;
-//     } catch (error) {
-//         console.log("Error:", error.message);
-//         return [];
-//     }
-// }
+        return adultUsers;
+    } catch (error) {
+        console.log("Error:", error.message);
+        return [];
+    }
+}
 
-// userget().then((users) => {
-//     console.log(users);
-// });
+userget().then((users) => {
+    console.log(users);
+});
 
 // 10. Debug this code. The requirement is to print `"All requests completed"` only after all three requests finish.
 //The problem is that forEach() does not wait for asynchronous callbacks. So "All requests completed" is printed before the requests finish.
@@ -168,11 +168,7 @@ loadUsers().catch((error) => {
     console.log("Error:", error.message);
 });
 // 11. Use `Promise.all()` to fetch these three resources in parallel:
-// ```text
-// https://jsonplaceholder.typicode.com/users/1
-// https://jsonplaceholder.typicode.com/users/2
-// https://jsonplaceholder.typicode.com/users/3
-// ```
+
 // Return an array containing the three parsed users. Correctly handle both HTTP errors and request errors.
 
 
@@ -215,16 +211,7 @@ getUsers().then(users => {
 
 
 // 12. Given this array, return the total amount of all successful transactions for each user.
-// ```js
-// const transactions = [
-//   { userId: 1, amount: 1000, status: "success" },
-//   { userId: 2, amount: 700, status: "success" },
-//   { userId: 1, amount: 500, status: "success" },
-//   { userId: 2, amount: 300, status: "failed" },
-//   { userId: 1, amount: 200, status: "failed" },
-//   { userId: 2, amount: 100, status: "success" }
-// ];
-// ```
+
 // The expected result shape is:
 // ```js
 // [
@@ -545,7 +532,7 @@ getTopThreeUsers().then(result => {
 
 
 //20. Debug and improve this function. The requirement is to fetch a list of posts and return the titles of posts whose title contains the word `"qui"` (case-insensitive).
-// ```js
+
 async function getMatchingPostTitles() {
     try {
         const response = await fetch(
