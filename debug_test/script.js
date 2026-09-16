@@ -185,7 +185,6 @@ async function getUsers() {
             urls.map(url => fetch(url))
         );
 
-        // Fetch does not reject for HTTP errors such as 404 or 500
         responses.forEach((response, index) => {
             if (!response.ok) {
                 throw new Error(
@@ -383,12 +382,12 @@ async function fetchWithRetry(url, retries) {
         try {
             const response = await fetch(url);
 
-            // Treat non-2xx responses as failures
+          
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
             }
 
-            // Return parsed JSON when successful
+          
             return await response.json();
 
         } catch (error) {
