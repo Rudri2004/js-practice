@@ -9,13 +9,6 @@
 
 // DATA:
 
-// const product = {
-//   title: 'New Laptop',
-//   price: 89999,
-//   description: 'Developer laptop',
-//   category: 'electronics'
-// };
-
 // TASKS:
 // 1. Send a POST request.
 // 2. Send the product as JSON.

@@ -209,7 +209,7 @@ const promises33 = [
 Promise.allSettled(promises33)
   .then(results => {
     results.forEach(result => {
-      if (result.status === "fulfilled") {
+  if (result.status === "fulfilled") {
         console.log("Status:", result.status);
         console.log("Value:", result.value);
       } else {

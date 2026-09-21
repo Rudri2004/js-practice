@@ -9,12 +9,7 @@
 
 // DATA:
 
-// const loginUrl = 'https://dummyjson.com/auth/login';
 
-// const loginData = {
-//   username: 'emilys',
-//   password: 'emilyspass'
-// };
 
 // TASKS:
 // 1. Send a POST request to the login endpoint.

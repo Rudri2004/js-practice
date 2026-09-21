@@ -88,7 +88,7 @@ async function updateUser() {
   body: JSON.stringify(userPatchData)
     });
 
-    if (!response.ok) {
+ if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
     }
 

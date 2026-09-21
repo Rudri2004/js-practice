@@ -71,13 +71,14 @@ async function deleteProducts() {
     const responses = await Promise.all(requests);
 
     responses.forEach((response, index) => {
+      
       console.log(
         `Product ${productIds[index]} Status:`,
         response.status
       );
 
-      if (!response.ok) {
-        throw new Error(
+     if (!response.ok) {
+  throw new Error(
           `Product ${productIds[index]} deletion failed. Status: ${response.status}`
         );
       }

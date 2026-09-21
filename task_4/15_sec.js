@@ -127,5 +127,5 @@ apiRequest(url46, 3, 3000)
     console.log("Final API Data:", data);
   })
   .catch(error => {
-    console.error("Final API Error:", error.message);
+  console.error("Final API Error:", error.message);
   });

@@ -9,11 +9,6 @@
 
 // DATA:
 
-// const loginData = {
-//   username: 'wrong-user',
-//   password: 'wrong-password'
-// };
-
 // TASKS:
 // 1. Attempt login.
 // 2. Check response.ok.

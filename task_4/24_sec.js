@@ -32,7 +32,7 @@ const url70 =
 
 async function task70() {
   try {
-    const response = await fetch(url70);
+ const response = await fetch(url70);
 
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);

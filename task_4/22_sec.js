@@ -119,8 +119,6 @@ task64();
 
 // DATA:
 //
-// const url = 'https://dummyjson.com/products';
-
 // TASKS:
 // 1. Fetch products.
 // 2. Calculate:

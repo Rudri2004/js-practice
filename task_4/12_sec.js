@@ -42,7 +42,7 @@ async function task37() {
 
     const posts = await postsResponse.json();
 
-    const firstPost = posts[0];
+ const firstPost = posts[0];
 
     const commentsResponse = await fetch(
       `https://jsonplaceholder.typicode.com/comments?postId=${firstPost.id}`

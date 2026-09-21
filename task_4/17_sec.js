@@ -97,10 +97,7 @@ async function sendFormData() {
 sendJSON();
 sendFormData();
 
-
-// ======================================================================
-// DIFFERENCE
-// ======================================================================
+//diference 
 
 // application/json
 // - Used when sending JSON data.

@@ -166,7 +166,7 @@ async function task36() {
     console.log("Users:", simplifiedUsers);
 
   } catch (error) {
-    console.error("Error:", error.message);
+ console.error("Error:", error.message);
   }
 }
 

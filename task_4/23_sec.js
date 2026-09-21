@@ -9,11 +9,6 @@
 
 // DATA:
 //
-// const usersUrl =
-// 'https://jsonplaceholder.typicode.com/users';
-//
-// const postsUrl =
-// 'https://jsonplaceholder.typicode.com/posts';
 
 // TASKS:
 // 1. Fetch users and posts using Promise.all().

@@ -19,9 +19,8 @@ const url43 = 'https://jsonplaceholder.typicode.com/users';
 // 5. Print a suitable timeout message.
 
 async function task43() {
-  const controller = new AbortController();
-
-  const timeout = setTimeout(() => {
+ const controller = new AbortController();
+ const timeout = setTimeout(() => {
     controller.abort();
   }, 3000);
 

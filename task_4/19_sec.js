@@ -50,7 +50,7 @@ async function task55() {
     const storedToken = localStorage.getItem("accessToken");
 
     console.log(
-      "Token exists:",
+  "Token exists:",
       Boolean(storedToken)
     );
 

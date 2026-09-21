@@ -53,15 +53,15 @@ async function task76() {
     const loginResponse = await fetch(
       loginUrl,
       {
-        method: "POST",
+  method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(loginData)
+  body: JSON.stringify(loginData)
       }
     );
 
-    const loginResult =
+   const loginResult =
       await loginResponse.json();
 
     if (!loginResponse.ok) {

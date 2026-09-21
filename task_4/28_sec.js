@@ -44,11 +44,6 @@
 const productUrl =
   "https://dummyjson.com/products";
 
-
-// ======================================================================
-// REUSABLE REQUEST FUNCTION
-// ======================================================================
-
 async function request(url, options = {}) {
   const response = await fetch(url, options);
 
@@ -73,38 +68,22 @@ async function request(url, options = {}) {
 
   return data;
 }
-
-
-// ======================================================================
-// GET PRODUCTS
-// ======================================================================
-
 async function getProducts() {
   return request(productUrl);
 }
-
-
-// ======================================================================
-// CREATE PRODUCT
-// ======================================================================
 
 async function createProduct(product) {
   return request(
     `${productUrl}/add`,
     {
       method: "POST",
-      headers: {
+    headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(product)
     }
   );
 }
-
-
-// ======================================================================
-// UPDATE PRODUCT
-// ======================================================================
 
 async function updateProduct(
   productId,
@@ -113,19 +92,14 @@ async function updateProduct(
   return request(
     `${productUrl}/${productId}`,
     {
-      method: "PATCH",
-      headers: {
+method: "PATCH",
+    headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(updateData)
     }
   );
 }
-
-
-// ======================================================================
-// DELETE PRODUCT
-// ======================================================================
 
 async function deleteProduct(productId) {
   return request(
@@ -137,22 +111,15 @@ async function deleteProduct(productId) {
 }
 
 
-// ======================================================================
-// MAIN TASK
-// ======================================================================
-
 async function task78() {
   try {
 
-    // 1. Fetch all products
-
+   
     const data = await getProducts();
 
     const originalProducts =
       data.products;
 
-
-    // 2. Display selected fields
 
     const simplifiedProducts =
       originalProducts.map(
@@ -175,7 +142,6 @@ async function task78() {
     );
 
 
-    // 3. Filter products by price
 
     const filteredProducts =
       originalProducts.filter(
@@ -188,7 +154,6 @@ async function task78() {
     );
 
 
-    // 4. Sort products by price
 
     const sortedProducts =
       [...originalProducts].sort(
@@ -201,8 +166,7 @@ async function task78() {
     );
 
 
-    // 5. Find product by ID
-
+    
     const productId = 1;
 
     const foundProduct =
@@ -216,7 +180,6 @@ async function task78() {
     );
 
 
-    // 6. Create product
 
     const newProduct = {
       title: "Developer Laptop",
@@ -233,9 +196,6 @@ async function task78() {
       createdProduct
     );
 
-
-    // 7. Update product
-
     const updatedProduct =
       await updateProduct(
         productId,
@@ -251,7 +211,6 @@ async function task78() {
     );
 
 
-    // 8. Delete product
 
     const deletedProduct =
       await deleteProduct(productId);
@@ -262,14 +221,12 @@ async function task78() {
     );
 
 
-    // 9. Success message
 
     console.log(
       "Product management completed successfully."
     );
 
 
-    // 10. Original array remains unchanged
 
     console.log(
       "Original Products:",

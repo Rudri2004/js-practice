@@ -31,7 +31,7 @@ userId: 1
 
 async function updatePost() {
   try {
-    const response = await fetch(url, {
+const response = await fetch(url, {
       method: "PUT",
   headers: {
         "Content-Type": "application/json"

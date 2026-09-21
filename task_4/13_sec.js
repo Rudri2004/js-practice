@@ -44,7 +44,7 @@ const countdown = setInterval(() => {
   count--;
 
   if (count === 0) {
-    clearInterval(countdown);
+clearInterval(countdown);
     console.log("Completed");
   }
 }, 1000);

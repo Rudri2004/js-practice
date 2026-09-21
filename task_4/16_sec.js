@@ -45,8 +45,7 @@ async function task47() {
     }
 
     const data = await response.json();
-
-    console.log("Server Response:", data.form);
+ console.log("Server Response:", data.form);
 
   } catch (error) {
     console.error("Error:", error.message);
