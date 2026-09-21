@@ -1,4 +1,3 @@
-// =====
 // SECTION 7 — PUT REQUEST
 // =======================
 
@@ -8,17 +7,17 @@
 
 // DATA:
 
-// const postId = 1;
+const postId = 1;
 
-// const url =
-// `https://jsonplaceholder.typicode.com/posts/${postId}`;
+const url =
+`https://jsonplaceholder.typicode.com/posts/${postId}`;
 
-// const updatedData = {
-// id: 1,
-// title: 'Updated Post Title',
-// body: 'Updated post body',
-// userId: 1
-// };
+const updatedData = {
+id: 1,
+title: 'Updated Post Title',
+body: 'Updated post body',
+userId: 1
+};
 
 // TASKS:
 
@@ -30,17 +29,29 @@
 // 6. Print the updated post.
 // 7. Handle errors.
 
+async function updatePost() {
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+  headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedData)
+    });
 
+if (!response.ok) {
+  throw new Error(`HTTP Error: ${response.status}`);
+    }
 
+const updatedPost = await response.json();
 
+    console.log("Updated Post:", updatedPost);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
 
-
-
-
-
-
-
-
+updatePost();
 // ======================================================================
 // TASK 23
 // =======
@@ -78,58 +89,33 @@
 
 // 5. Print the result.
 
-// ======================================================================
-// SECTION 8 — PATCH REQUEST
-// =========================
+async function updateUser() {
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedUser)
+    });
 
-// ======================================================================
-// TASK 24
-// =======
+    if (!response.ok) {
+      throw new Error(`HTTP Error: ${response.status}`);
+    }
 
-// DATA:
+    const user = await response.json();
 
-// const postId = 1;
+    const simplifiedUser = {
+      id: user.id,
+      name: user.name,
+      username: user.username,
+      email: user.email
+    };
 
-// const url =
-// `https://jsonplaceholder.typicode.com/posts/${postId}`;
+    console.log("Updated User:", simplifiedUser);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
 
-// const patchData = {
-// title: 'Only Title Updated'
-// };
-
-// TASKS:
-
-// 1. Send a PATCH request.
-// 2. Update only the title.
-// 3. Keep the request body as JSON.
-// 4. Check response.ok.
-// 5. Print the returned object.
-// 6. Verify which fields were returned.
-
-// ======================================================================
-// TASK 25
-// =======
-
-// DATA:
-
-// const userId = 3;
-
-// const url =
-// `https://jsonplaceholder.typicode.com/users/${userId}`;
-
-// const patchData = {
-// email: '[newemail@example.com](mailto:newemail@example.com)'
-// };
-
-// TASKS:
-
-// 1. Send a PATCH request.
-// 2. Update only the email.
-// 3. Handle the response.
-// 4. Return:
-
-//    {
-//    id,
-//    name,
-//    email
-//    }
+updateUser();
